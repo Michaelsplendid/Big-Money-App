@@ -1,3 +1,14 @@
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyC_a-rbF2wvc1AIec0SbxTrLDMSWfWWjmM",
+    authDomain: "big-money-app-c1594.firebaseapp.com",
+    projectId: "big-money-app-c1594",
+    storageBucket: "big-money-app-c1594.appspot.com",
+    messagingSenderId: "137032507234",
+    appId: "1:137032507234:web:6f7b6c05c6479591b9963b",
+    measurementId: "G-19GL1SMB17"
+};
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -125,7 +136,6 @@ function addTransaction() {
             alert("Transaction added!");
             loadTransactions();
             showTransactionContainer();
-            clearTransactionFields(); // Clear fields in local storage
         }).catch((error) => {
             console.error("Error adding transaction", error);
             alert("Error adding transaction");
@@ -196,33 +206,6 @@ function deleteTransaction(transactionId) {
         });
 }
 
-// Save transaction fields to local storage
-function saveTransactionFields() {
-    const transactionName = document.getElementById("transaction-name").value;
-    const transactionAmount = document.getElementById("transaction-amount").value;
-    localStorage.setItem('transactionName', transactionName);
-    localStorage.setItem('transactionAmount', transactionAmount);
-}
-
-// Load transaction fields from local storage
-function loadTransactionFields() {
-    const savedTransactionName = localStorage.getItem('transactionName');
-    const savedTransactionAmount = localStorage.getItem('transactionAmount');
-    
-    if (savedTransactionName) {
-        document.getElementById("transaction-name").value = savedTransactionName;
-    }
-    if (savedTransactionAmount) {
-        document.getElementById("transaction-amount").value = savedTransactionAmount;
-    }
-}
-
-// Clear transaction fields from local storage
-function clearTransactionFields() {
-    localStorage.removeItem('transactionName');
-    localStorage.removeItem('transactionAmount');
-}
-
 // Event listeners
 document.getElementById("signup-btn").addEventListener("click", showSignup);
 document.getElementById("login-btn").addEventListener("click", showLogin);
@@ -231,4 +214,11 @@ document.getElementById("login-action").addEventListener("click", login);
 document.getElementById("logout-btn").addEventListener("click", logout);
 document.getElementById("add-transaction-btn").addEventListener("click", addTransaction);
 
-// Event listeners for transaction 
+// Check authentication state
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        showDashboard(user);
+    } else {
+        showLogin();
+    }
+});
