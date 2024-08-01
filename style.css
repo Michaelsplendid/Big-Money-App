@@ -1,0 +1,189 @@
+body {
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.navbar {
+    background-color: rgb(163, 243, 163);
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-left: 30px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+}
+
+#login-btn {
+   float: right;
+}
+
+#signup-btn {
+    margin-left: -40px;
+    padding: 0;
+}
+
+.navbar .nav-links button {
+    color: #000;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+.container {
+    padding: 20px;
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.transaction-form {
+    background-color: green;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    position: initial;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+    margin: 100px auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus {
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc;  
+}
+
+button {
+    width: 100px;
+    padding: 10px;
+    background-color: transparent;
+    color: green;
+    border-radius: 5px;
+    border-color: green;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#add-transaction-btn {
+    color: #fff;
+    border-color: #fff;
+}
+
+#logout-btn {
+    color: green;
+    font-weight: bolder;
+    border-radius: 5px;
+    border: 2px solid green;
+    font-size: 16px;
+    width: fit-content;
+}
+
+.bond {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+#dashboard-container h2 {
+    color: green;
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 100px;
+    margin-bottom: -70px;
+}
+
+.transaction-item {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+    background-color: none;
+}
+
+.transaction-name {
+    flex: 1;
+    text-align: left;
+    font-size: large;
+    color: rgb(66, 65, 65);
+    position: relative;
+}
+
+.transaction-amount {
+    flex: 1;
+    text-align: right;
+    font-size: x-large;
+    font-weight: bolder;
+    color: rgb(66, 65, 65);
+    position: inherit;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(156, 156, 156);
+    color: black;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 1px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 16px;
+}
+
+@media (max-width: 600px) {
+    #dashboard-container h2 {
+    font-size: 20px;
+    }
+
+    .transaction-item {
+        width: 200px;
+        margin: 0;
+        padding: 25px;
+        float: left;
+    }
+
+    .transaction-form {
+        margin-right: 30px;
+        float: right;
+    }
+}
